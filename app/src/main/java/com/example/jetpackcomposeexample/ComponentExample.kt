@@ -21,11 +21,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -61,7 +66,27 @@ import com.example.jetpackcomposeexample.ui.theme.JetpackComposeExampleTheme
 @Composable
 fun Preview() {
     JetpackComposeExampleTheme {
-        MyRadioButtonList()
+        MyCard()
+    }
+}
+
+
+
+@Composable
+fun MyCard(){
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        elevation = CardDefaults.elevatedCardElevation(10.dp),
+        shape = MaterialTheme.shapes.large,
+        //colors = CardColors(containerColor = Color.Red, contentColor = Color.Yellow, disabledContentColor = Color.Yellow, disabledContainerColor = Color.Red)
+
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = "Ejemplo 1")
+            Text(text = "Ejemplo 2")
+        }
     }
 }
 
