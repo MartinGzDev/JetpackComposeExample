@@ -1,7 +1,5 @@
-package com.example.jetpackcomposeexample
+package com.example.jetpackcomposeexample.util
 
-import android.util.Log
-import android.widget.CheckBox
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -19,27 +17,23 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Star
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TriStateCheckbox
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Card
+import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Icon
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.RadioButton
+import androidx.compose.material.Switch
+import androidx.compose.material.SwitchDefaults
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TriStateCheckbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -55,20 +49,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jetpackcomposeexample.ui.theme.JetpackComposeExampleTheme
-
-
-@Preview(showBackground = true)
-@Composable
-fun Preview() {
-    JetpackComposeExampleTheme {
-        MyCard()
-    }
-}
+import com.example.jetpackcomposeexample.R
 
 
 
@@ -78,7 +61,7 @@ fun MyCard(){
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        elevation = CardDefaults.elevatedCardElevation(10.dp),
+        elevation = 10.dp,
         shape = MaterialTheme.shapes.large,
         //colors = CardColors(containerColor = Color.Red, contentColor = Color.Yellow, disabledContentColor = Color.Yellow, disabledContainerColor = Color.Red)
 
@@ -189,7 +172,7 @@ fun MyProgressAdvance(){
         horizontalAlignment = Alignment.CenterHorizontally) {
 
             CircularProgressIndicator(progress = progressStatus, color = Color.Red, strokeWidth = 5.dp)
-            LinearProgressIndicator(modifier = Modifier.padding(top = 32.dp), color = Color.Red, trackColor = Color.Green)
+            LinearProgressIndicator(modifier = Modifier.padding(top = 32.dp), color = Color.Red)
 
 
         Row(Modifier.fillMaxWidth()) {
@@ -220,7 +203,7 @@ fun MyProgress(){
             .padding(24.dp)) {
         if (showLoading){
             CircularProgressIndicator(color = Color.Red, strokeWidth = 5.dp)
-            LinearProgressIndicator(modifier = Modifier.padding(top = 32.dp), color = Color.Red, trackColor = Color.Green)
+            LinearProgressIndicator(modifier = Modifier.padding(top = 32.dp), color = Color.Red)
         }
 
         Button(onClick = {showLoading = !showLoading}) {
@@ -255,21 +238,9 @@ fun MyButtonExample(){
         Modifier
             .fillMaxSize()
             .padding(24.dp)) {
-        Button(onClick = {
-            enabled = false
-        }, colors = ButtonDefaults.buttonColors(
-            contentColor = Color.Blue,
-            containerColor = Color.Magenta),
-            enabled = enabled,
-            border = BorderStroke(5.dp, Color.Cyan)
-        ) {
-            Text(text = "hola")
-        }
 
-        OutlinedButton(onClick = {}) {
-            Text(text = "hola")
 
-        }
+
     }
 
 
@@ -284,10 +255,7 @@ fun MyTextFieldOutLined(){
     OutlinedTextField(value = myText, onValueChange = {myText = it}, modifier = Modifier.padding(24.dp), label = { Text(
         text = "Ingresa un texto"
     )
-    }, colors = OutlinedTextFieldDefaults.colors(
-        focusedBorderColor = Color.Magenta,
-        unfocusedTextColor = Color.Blue
-    ),
+    },
         singleLine = true
     )
 }
